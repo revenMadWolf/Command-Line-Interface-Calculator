@@ -37,8 +37,10 @@ def run_division():
 
 if int(selection) == 1:
     run_multiplication()
-else:
+elif int(selection) == 2:
     run_division()
+else:
+    pass
     
     
 
