@@ -11,6 +11,10 @@ def addition(num1,num2):
 def subtraction(num1,num2):
     return num1-num2
 
+def modulus(num1,num2):
+    return num1 ^ num2
+
+
 def area_rectangle(length,width):
     return length*width
 
@@ -25,11 +29,6 @@ def volume_cubiod(length,width,height):
 
 def volume_sphere(radius):
     return 4/3 * 3.142 * radius* radius* radius
-
-
-
-
-
 
 
 
