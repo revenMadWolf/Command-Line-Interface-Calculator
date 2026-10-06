@@ -20,6 +20,20 @@ def area_circle(radius):
 def volume_cylinder(radius,height):
     return 3.142*radius**2*height
 
+def volume_cubiod(length,width,height):
+    return length*width*height
+
+def volume_sphere(radius):
+    return 4/3 * 3.142 * radius* radius* radius
+
+
+
+
+
+
+
+
+
 def airthmetic_sequence(first_term,difference,n):
     a,d=first_term,difference   #assigning into two variables to sort it 
     nth_term=a+(n-1)*d
