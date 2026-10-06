@@ -38,7 +38,7 @@ def velocity(distance,time):
 def volume_cylinder(radius,height):
     return 3.142*radius**2*height
 
-def airthmetic_sequence(first_term,difference,n):
+def arithmetic_sequence(first_term,difference,n):
     a,d=first_term,difference   #assigning into two variables to sort it 
     nth_term=a+(n-1)*d
     return nth_term
