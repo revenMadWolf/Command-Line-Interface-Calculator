@@ -85,8 +85,8 @@ def run_area_rectangle():
 
 def run_area_triangle():
     print("Selected area_triangle \n")
-    base=input("Enter base: ")
-    height=input("Enter height: ")
+    base=int(input("Enter base: "))
+    height=int(input("Enter height: "))
     answer=functions.area_triangle(base,height)
     print(answer)
 
