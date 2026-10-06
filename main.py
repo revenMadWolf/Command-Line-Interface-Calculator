@@ -5,7 +5,9 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  2:{"NAME":"Subtraction","FUNCTION":"run_subtraction()"},
                  3:{"NAME":"Multiplication","FUNCTION":"run_multiplication()"},
                  4:{"NAME":"Division","FUNCTION":"run_division()"},
-                 5:{"NAME":"Area Of Triangle","FUNCTION":"run_area_rectangle()"}
+                 5:{"NAME":"Modulus","FUNCTION":"run_modulus()"},
+                 6:{"NAME":"Area Of Triangle","FUNCTION":"run_area_rectangle()"},
+                 7:{"NAME":"Geometric Sequence","FUNCTION":"run_geometric_sequence()"}
                  }
 
 #Function_dict structure: {selection_number:{"NAME":"The function name to display","FUNCTION":"Function to run"}
@@ -42,53 +44,81 @@ def run_multiplication():
 #Selcted Division
 def run_division():
     print("Selected Division \n")
-    answer = int(input("Enter Number: "))  #Initialize the answer
-    while True:                            #Keep asking for new numbers to divided by
-        num = input("Enter Number: ")       #Get the next number to divide answer by
-        if num:                             #Stop asking for more numbers and leave the calculation
-            answer = functions.division(answer,int(num))
-        else:
-            break
-    print("Answer:",answer) 
+    answer=float(input("Enter number: "))
+    inputs = get_input()
+    for num in inputs:
+        answer = functions.division(answer,num)
+    print("Answer:",answer)
+    #Output the answer
     
 #Selected Addition
 def run_addition():
     print("Selected Addition \n")
-    answer = int(input("Enter Number: "))  #Initialize the answer
-    while True:                            #Keep asking for new numbers to add
-        num = input("Enter Number: ")       #Get the next number to add answer
-        if num:                             #Stop asking for more numbers and leave the calculation
-            answer = functions.addition(answer,int(num))
-        else:
-            break
+    inputs = get_input()
+    answer = 0
+    for num in inputs:
+        answer = functions.addition(answer,num)
     print("Answer:",answer)
+    #Output the answer
+
+
 #Selcted subtraction
 def run_subtraction():
-    print("Selected subtraction \n")
-    answer = int(input("Enter Number: "))  #Initialize the answer
-    while True:                            #Keep asking for new numbers to subtract
-        num = input("Enter Number: ")       #Get the next number to subtraction answer
-        if num:                             #Stop asking for more numbers and leave the calculation
-            answer = functions.subtraction(answer,int(num))
-        else:
-            break
+    print("Selected Subtraction \n")
+    answer=float(input("Enter number: "))
+    inputs = get_input()
+    for num in inputs:
+        answer = functions.subtraction(answer,num)
     print("Answer:",answer)
+    #Output the answer
 
 
+#Modulus selected 
+def run_modulus():
+
+    print("Selected Modulus \n")
+
+    answer = float(input("Enter first number: "))
+    num = float(input("Enter second number: "))
+
+    answer = functions.modulus(answer, num)
+
+    print("Answer:", answer)
+    
+
+# rectangle's area selected
 def run_area_rectangle():
-    print("selected area_rectangle \n")
+    print("selected Rectangle Area Calculator \n")
     length= int(input("Enter length: "))
     width=int(input("Enter width: "))
     answer=functions.area_rectangle(length,width)   #return the answer
     print(answer)
 
+
+#trainagle's area selected
 def run_area_triangle():
-    print("Selected area_triangle \n")
+    print("Selected Triangle Area Calculator \n")
     base=int(input("Enter base: "))
     height=int(input("Enter height: "))
     answer=functions.area_triangle(base,height)
     print(answer)
 
+#Geomatric Sequence selected
+def run_geometric_sequence():
+    print("Selected Geometric Sequence Calculator \n")   #message that displays
+    sequence = input("Enter sequence with commas: ")     # Ask the user to enter the starting terms, separated by commas 
+    n = int(input("Enter required elements amount: "))
+    numbers = sequence.split(",")                   # Split the input into strings, then convert each string to a number
+    numbers = [float(num) for num in numbers]
 
+# Calculate the common ratio from the first two terms
+    common_ratio = numbers[1]/numbers[0]
+    first_num = numbers[0]
+
+    # Add terms until the sequence contains the requested number of elements
+    while len(numbers) < n:
+        numbers.append(functions.geometric_sequence(first_num,common_ratio,len(numbers)+1))
+
+    print(numbers)
 
 eval(function_dict[selection]["FUNCTION"])

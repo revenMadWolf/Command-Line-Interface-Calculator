@@ -11,8 +11,14 @@ def addition(num1,num2):
 def subtraction(num1,num2):
     return num1-num2
 
+def modulus(num1,num2):
+    return num1%num2
+
 def area_rectangle(length,width):
     return length*width
+
+def area_square(length):
+    return length*length
 
 def area_circle(radius):
     return 3.142*radius**2
@@ -32,7 +38,7 @@ def velocity(distance,time):
 def volume_cylinder(radius,height):
     return 3.142*radius**2*height
 
-def airthmetic_sequence(first_term,difference,n):
+def arithmetic_sequence(first_term,difference,n):
     a,d=first_term,difference   #assigning into two variables to sort it 
     nth_term=a+(n-1)*d
     return nth_term
