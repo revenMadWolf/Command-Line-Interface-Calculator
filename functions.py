@@ -37,5 +37,3 @@ def airthmetic_sequence(first_term,difference,n):
     nth_term=a+(n-1)*d
     return nth_term
 
-def area_triangle(base,height):
-    return 1/2*base*height
