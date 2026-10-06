@@ -91,12 +91,6 @@ def run_area_triangle():
     print(answer)
 
 
-if int(selection) == 1:
-    run_multiplication()
-elif int(selection) == 2:
-    run_division()
-else:
-    pass
 
     
     
