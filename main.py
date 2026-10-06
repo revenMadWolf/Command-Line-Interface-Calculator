@@ -2,11 +2,21 @@ import functions
 
 
 function_dict = {1:"multiplication",2:"division"}
+function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
+                 2:{"NAME":"Subtraction","FUNCTION":"run_subtraction()"},
+                 3:{"NAME":"Multiplication","FUNCTION":"run_multiplication()"},
+                 4:{"NAME":"Division","FUNCTION":"run_division()"}
+                 }
+
+#Function_dict structure: {selection_number:{"NAME":"The function name to display","FUNCTION":"Function to run"}
+#save it like this so selection number and the function is connected.
 
 print("SELECT OPTION: ")
 
 for record in function_dict.items():
     print(record[0],record[1])
+for inner_set in function_dict.items():
+    print(inner_set[0],inner_set[1]["NAME"])
 
 selection = int(input("Enter Number: "))
 
@@ -23,6 +33,7 @@ def run_multiplication():
             break
     print("Answer:",answer)
     #Output the answer
+#Selcted Division
 def run_division():
     print("Selected Division \n")
     answer = int(input("Enter Number: "))  #Initialize the answer
@@ -33,12 +44,37 @@ def run_division():
         else:
             break
     print("Answer:",answer) 
+    
+#Selected Addition
+def run_addition():
+    print("Selected Addition \n")
+    answer = int(input("Enter Number: "))  #Initialize the answer
+    while True:                            #Keep asking for new numbers to add
+        num = input("Enter Number: ")       #Get the next number to add answer
+        if num:                             #Stop asking for more numbers and leave the calculation
+            answer = functions.addition(answer,int(num))
+        else:
+            break
+    print("Answer:",answer)
+#Selcted subtraction
+def run_subtraction():
+    print("Selected subtraction \n")
+    answer = int(input("Enter Number: "))  #Initialize the answer
+    while True:                            #Keep asking for new numbers to subtract
+        num = input("Enter Number: ")       #Get the next number to subtraction answer
+        if num:                             #Stop asking for more numbers and leave the calculation
+            answer = functions.subtraction(answer,int(num))
+        else:
+            break
+    print("Answer:",answer)  
+
 
 def run_area_rectangle():
     print("selected area_rectangle \n")
     length= int(input("Enter length: "))
     width=int(input("Enter width: "))
     answer=functions.area_rectangle(length,width)
+    answer=functions.area_rectangle(length,width)   #return the answer
     print(answer)
 
 
@@ -48,6 +84,7 @@ elif int(selection) == 2:
     run_division()
 else:
     pass
+
     
     
 
