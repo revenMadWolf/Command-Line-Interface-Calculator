@@ -1,12 +1,19 @@
 import functions
 
 
-function_dict = {1:"addition",2:"subtraction",3:"multiplication",4:"division"}
+function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
+                 2:{"NAME":"Subtraction","FUNCTION":"run_subtraction()"},
+                 3:{"NAME":"Multiplication","FUNCTION":"run_multiplication()"},
+                 4:{"NAME":"Division","FUNCTION":"run_division()"}
+                 }
+
+#Function_dict structure: {selection_number:{"NAME":"The function name to display","FUNCTION":"Function to run"}
+#save it like this so selection number and the function is connected.
 
 print("SELECT OPTION: ")
 
-for record in function_dict.items():
-    print(record[0],record[1])
+for inner_set in function_dict.items():
+    print(inner_set[0],inner_set[1]["NAME"])
 
 selection = int(input("Enter Number: "))
 
@@ -57,16 +64,9 @@ def run_subtraction():
             break
     print("Answer:",answer)  
 
-if int(selection) == 1:
-    run_addition()
-elif int(selection) == 2:
-    run_subtraction()
-elif int(selection) == 3:
-    run_multiplication
-elif int(selection) == 4:
-    run_division
-else:
-    pass
+#eval() function turns normal string to python code 
+#example : eval("print('hello world')") output - hello world
+eval(function_dict[selection]["FUNCTION"])
     
     
 
