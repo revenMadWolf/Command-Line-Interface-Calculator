@@ -20,19 +20,27 @@ for inner_set in function_dict.items():
 
 selection = int(input("Enter Number: "))
 
+def get_input():
+    input_list = []
+    while True:  # Keep asking for new numbers to subtract
+        num = input("Enter Number: ")  # Get the next number to subtraction answer
+        if num:  # Stop asking for more numbers and leave the calculation
+            input_list.append(int(num))
+        else:
+            break
+    return input_list
+
 
 #Selected Multiplication
 def run_multiplication():
     print("Selected Multiplication \n")
-    answer = int(input("Enter Number: "))  #Initialize the answer
-    while True:                            #Keep asking for new numbers to multiply by
-        num = input("Enter Number: ")       #Get the next number to multiply answer by
-        if num:                             #Stop asking for more numbers and leave the calculation
-            answer = functions.multiplication(answer,int(num))
-        else:
-            break
+    inputs = get_input()
+    answer = 1
+    for num in inputs:
+        answer = functions.multiplication(answer,num)
     print("Answer:",answer)
     #Output the answer
+
 #Selcted Division
 def run_division():
     print("Selected Division \n")
@@ -66,7 +74,7 @@ def run_subtraction():
             answer = functions.subtraction(answer,int(num))
         else:
             break
-    print("Answer:",answer)  
+    print("Answer:",answer)
 
 
 def run_area_rectangle():
@@ -88,3 +96,12 @@ else:
     
     
 
+def get_input():
+    input_list = []
+    while True:  # Keep asking for new numbers to subtract
+        num = input("Enter Number: ")  # Get the next number to subtraction answer
+        if num:  # Stop asking for more numbers and leave the calculation
+            input_list.append(int(num))
+        else:
+            break
+    return input_list
