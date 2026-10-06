@@ -72,14 +72,18 @@ def run_subtraction():
     print("Answer:",answer)
     #Output the answer
 
+
+#Modulus selected 
 def run_modulus():
+
     print("Selected Modulus \n")
-    answer=float(input("Enter number: "))
-    inputs = get_input()
-    for num in inputs:
-        answer = functions.modulus(answer,num)
-    print("Answer:",answer)
-    #Output the answer
+
+    answer = float(input("Enter first number: "))
+    num = float(input("Enter second number: "))
+
+    answer = functions.modulus(answer, num)
+
+    print("Answer:", answer)
     
 
 
