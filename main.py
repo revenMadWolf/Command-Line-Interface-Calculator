@@ -1,7 +1,7 @@
 import functions
 
 
-function_dict = {1:"multiplication",2:"division"}
+
 function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  2:{"NAME":"Subtraction","FUNCTION":"run_subtraction()"},
                  3:{"NAME":"Multiplication","FUNCTION":"run_multiplication()"},
@@ -108,4 +108,4 @@ def get_input():
 #eval() function turns normal string to python code 
 #example : eval("print('hello world')") output - hello world
 eval(function_dict[selection]["FUNCTION"])
->>>>>>> Stashed changes
+
