@@ -86,7 +86,7 @@ def run_modulus():
     print("Answer:", answer)
     
 
-
+# rectangle's area selected
 def run_area_rectangle():
     print("selected Rectangle Area Calculator \n")
     length= int(input("Enter length: "))
@@ -94,6 +94,8 @@ def run_area_rectangle():
     answer=functions.area_rectangle(length,width)   #return the answer
     print(answer)
 
+
+#trainagle's area selected
 def run_area_triangle():
     print("Selected Triangle Area Calculator \n")
     base=int(input("Enter base: "))
@@ -101,16 +103,19 @@ def run_area_triangle():
     answer=functions.area_triangle(base,height)
     print(answer)
 
+#Geomatric Sequence selected
 def run_geometric_sequence():
-    print("Selected Geometric Sequence Calculator \n")
-    sequence = input("Enter sequence with commas: ")
+    print("Selected Geometric Sequence Calculator \n")   #message that displays
+    sequence = input("Enter sequence with commas: ")     # Ask the user to enter the starting terms, separated by commas 
     n = int(input("Enter required elements amount: "))
-    numbers = sequence.split(",")
+    numbers = sequence.split(",")                   # Split the input into strings, then convert each string to a number
     numbers = [float(num) for num in numbers]
 
+# Calculate the common ratio from the first two terms
     common_ratio = numbers[1]/numbers[0]
     first_num = numbers[0]
 
+    # Add terms until the sequence contains the requested number of elements
     while len(numbers) < n:
         numbers.append(functions.geometric_sequence(first_num,common_ratio,len(numbers)+1))
 
