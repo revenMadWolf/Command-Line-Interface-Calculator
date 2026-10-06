@@ -11,8 +11,14 @@ def addition(num1,num2):
 def subtraction(num1,num2):
     return num1-num2
 
+def modulus(num1,num2):
+    return num1%num2
+
 def area_rectangle(length,width):
     return length*width
+
+def area_square(length):
+    return length*length
 
 def area_circle(radius):
     return 3.142*radius**2

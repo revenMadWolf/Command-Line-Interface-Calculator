@@ -5,7 +5,9 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  2:{"NAME":"Subtraction","FUNCTION":"run_subtraction()"},
                  3:{"NAME":"Multiplication","FUNCTION":"run_multiplication()"},
                  4:{"NAME":"Division","FUNCTION":"run_division()"},
-                 5:{"NAME":"Area Of Triangle","FUNCTION":"run_area_rectangle()"}
+                 5:{"NAME":"Modulus","FUNCTION":"run_modulus()"},
+                 6:{"NAME":"Area Of Triangle","FUNCTION":"run_area_rectangle()"}
+                 
                  }
 
 #Function_dict structure: {selection_number:{"NAME":"The function name to display","FUNCTION":"Function to run"}
@@ -42,37 +44,43 @@ def run_multiplication():
 #Selcted Division
 def run_division():
     print("Selected Division \n")
-    answer = int(input("Enter Number: "))  #Initialize the answer
-    while True:                            #Keep asking for new numbers to divided by
-        num = input("Enter Number: ")       #Get the next number to divide answer by
-        if num:                             #Stop asking for more numbers and leave the calculation
-            answer = functions.division(answer,int(num))
-        else:
-            break
-    print("Answer:",answer) 
+    answer=float(input("Enter number: "))
+    inputs = get_input()
+    for num in inputs:
+        answer = functions.division(answer,num)
+    print("Answer:",answer)
+    #Output the answer
     
 #Selected Addition
 def run_addition():
     print("Selected Addition \n")
-    answer = int(input("Enter Number: "))  #Initialize the answer
-    while True:                            #Keep asking for new numbers to add
-        num = input("Enter Number: ")       #Get the next number to add answer
-        if num:                             #Stop asking for more numbers and leave the calculation
-            answer = functions.addition(answer,int(num))
-        else:
-            break
+    inputs = get_input()
+    answer = 0
+    for num in inputs:
+        answer = functions.addition(answer,num)
     print("Answer:",answer)
+    #Output the answer
+
+
 #Selcted subtraction
 def run_subtraction():
-    print("Selected subtraction \n")
-    answer = int(input("Enter Number: "))  #Initialize the answer
-    while True:                            #Keep asking for new numbers to subtract
-        num = input("Enter Number: ")       #Get the next number to subtraction answer
-        if num:                             #Stop asking for more numbers and leave the calculation
-            answer = functions.subtraction(answer,int(num))
-        else:
-            break
+    print("Selected Subtraction \n")
+    answer=float(input("Enter number: "))
+    inputs = get_input()
+    for num in inputs:
+        answer = functions.subtraction(answer,num)
     print("Answer:",answer)
+    #Output the answer
+
+def run_modulus():
+    print("Selected Modulus \n")
+    answer=float(input("Enter number: "))
+    inputs = get_input()
+    for num in inputs:
+        answer = functions.modulus(answer,num)
+    print("Answer:",answer)
+    #Output the answer
+    
 
 
 def run_area_rectangle():
