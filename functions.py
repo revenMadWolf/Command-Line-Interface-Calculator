@@ -17,6 +17,18 @@ def area_rectangle(length,width):
 def area_circle(radius):
     return 3.142*radius**2
 
+def area_triangle(base,height):
+    return 1/2*base*height
+
+def volume_cube(side):
+    return side**3
+
+def geometric_sequence(first_term,ratio,n):
+    return first_term*ratio**(n-1)
+
+def velocity(distance,time):
+    return distance/time
+
 def volume_cylinder(radius,height):
     return 3.142*radius**2*height
 
