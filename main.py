@@ -4,7 +4,8 @@ import functions
 function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  2:{"NAME":"Subtraction","FUNCTION":"run_subtraction()"},
                  3:{"NAME":"Multiplication","FUNCTION":"run_multiplication()"},
-                 4:{"NAME":"Division","FUNCTION":"run_division()"}
+                 4:{"NAME":"Division","FUNCTION":"run_division()"},
+                 5:{"NAME":"Area Of Triangle","FUNCTION":"run_area_rectangle()"}
                  }
 
 #Function_dict structure: {selection_number:{"NAME":"The function name to display","FUNCTION":"Function to run"}
@@ -12,8 +13,6 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
 
 print("SELECT OPTION: ")
 
-for record in function_dict.items():
-    print(record[0],record[1])
 for inner_set in function_dict.items():
     print(inner_set[0],inner_set[1]["NAME"])
 
@@ -92,5 +91,4 @@ def run_area_triangle():
 
 
 
-    
-    
+eval(function_dict[selection]["FUNCTION"])
