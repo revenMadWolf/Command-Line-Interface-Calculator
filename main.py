@@ -34,6 +34,13 @@ def run_division():
             break
     print("Answer:",answer) 
 
+def run_area_rectangle():
+    print("selected area_rectangle \n")
+    length= int(input("Enter length: "))
+    width=int(input("Enter width: "))
+    answer=functions.area_rectangle(length,width)
+    print(answer)
+
 
 if int(selection) == 1:
     run_multiplication()
