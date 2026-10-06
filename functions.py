@@ -24,3 +24,6 @@ def airthmetic_sequence(first_term,difference,n):
     a,d=first_term,difference   #assigning into two variables to sort it 
     nth_term=a+(n-1)*d
     return nth_term
+
+def area_triangle(base,height):
+    return 1/2*base*height

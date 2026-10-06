@@ -84,6 +84,13 @@ def run_area_rectangle():
     answer=functions.area_rectangle(length,width)   #return the answer
     print(answer)
 
+def run_area_triangle():
+    print("Selected area_triangle \n")
+    base=input("Enter base: ")
+    height=input("Enter height: ")
+    answer=functions.area_triangle(base,height)
+    print(answer)
+
 
 if int(selection) == 1:
     run_multiplication()
