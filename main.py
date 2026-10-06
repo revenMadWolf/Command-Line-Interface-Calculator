@@ -1,7 +1,7 @@
 import functions
 
 
-
+function_dict = {1:"multiplication",2:"division"}
 function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  2:{"NAME":"Subtraction","FUNCTION":"run_subtraction()"},
                  3:{"NAME":"Multiplication","FUNCTION":"run_multiplication()"},
@@ -81,7 +81,6 @@ def run_area_rectangle():
     print("selected area_rectangle \n")
     length= int(input("Enter length: "))
     width=int(input("Enter width: "))
-    answer=functions.area_rectangle(length,width)
     answer=functions.area_rectangle(length,width)   #return the answer
     print(answer)
 
@@ -105,7 +104,3 @@ def get_input():
         else:
             break
     return input_list
-#eval() function turns normal string to python code 
-#example : eval("print('hello world')") output - hello world
-eval(function_dict[selection]["FUNCTION"])
-
