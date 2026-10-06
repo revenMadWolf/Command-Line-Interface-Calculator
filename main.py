@@ -1,7 +1,6 @@
 import functions
 
 
-function_dict = {1:"multiplication",2:"division"}
 function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  2:{"NAME":"Subtraction","FUNCTION":"run_subtraction()"},
                  3:{"NAME":"Multiplication","FUNCTION":"run_multiplication()"},
@@ -101,13 +100,3 @@ else:
 
     
     
-
-def get_input():
-    input_list = []
-    while True:  # Keep asking for new numbers to subtract
-        num = input("Enter Number: ")  # Get the next number to subtraction answer
-        if num:  # Stop asking for more numbers and leave the calculation
-            input_list.append(int(num))
-        else:
-            break
-    return input_list
