@@ -105,3 +105,7 @@ def get_input():
         else:
             break
     return input_list
+#eval() function turns normal string to python code 
+#example : eval("print('hello world')") output - hello world
+eval(function_dict[selection]["FUNCTION"])
+>>>>>>> Stashed changes
