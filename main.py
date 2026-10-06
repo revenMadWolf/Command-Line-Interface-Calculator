@@ -6,8 +6,8 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  3:{"NAME":"Multiplication","FUNCTION":"run_multiplication()"},
                  4:{"NAME":"Division","FUNCTION":"run_division()"},
                  5:{"NAME":"Modulus","FUNCTION":"run_modulus()"},
-                 6:{"NAME":"Area Of Triangle","FUNCTION":"run_area_rectangle()"}
-                 
+                 6:{"NAME":"Area Of Triangle","FUNCTION":"run_area_rectangle()"},
+                 7:{"NAME":"Geometric Sequence","FUNCTION":"run_geometric_sequence()"}
                  }
 
 #Function_dict structure: {selection_number:{"NAME":"The function name to display","FUNCTION":"Function to run"}
@@ -88,19 +88,32 @@ def run_modulus():
 
 
 def run_area_rectangle():
-    print("selected area_rectangle \n")
+    print("selected Rectangle Area Calculator \n")
     length= int(input("Enter length: "))
     width=int(input("Enter width: "))
     answer=functions.area_rectangle(length,width)   #return the answer
     print(answer)
 
 def run_area_triangle():
-    print("Selected area_triangle \n")
+    print("Selected Triangle Area Calculator \n")
     base=int(input("Enter base: "))
     height=int(input("Enter height: "))
     answer=functions.area_triangle(base,height)
     print(answer)
 
+def run_geometric_sequence():
+    print("Selected Geometric Sequence Calculator \n")
+    sequence = input("Enter sequence with commas: ")
+    n = int(input("Enter required elements amount: "))
+    numbers = sequence.split(",")
+    numbers = [float(num) for num in numbers]
 
+    common_ratio = numbers[1]/numbers[0]
+    first_num = numbers[0]
+
+    while len(numbers) < n:
+        numbers.append(functions.geometric_sequence(first_num,common_ratio,len(numbers)+1))
+
+    print(numbers)
 
 eval(function_dict[selection]["FUNCTION"])
