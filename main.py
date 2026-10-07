@@ -10,6 +10,7 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  7:{"NAME":"Geometric Sequence","FUNCTION":"run_geometric_sequence()"},
                  8:{"NAME":"Cube volume","FUNCTION":"run_volume_cube()"},
                  9:{"NAME":"Circle area","FUNCTION":"run_area_circle()"}
+                 10:{"NAME":"Cylinder Volume","FUNCTION":"run_volume_cylinder()"}
                  }
 
 #Function_dict structure: {selection_number:{"NAME":"The function name to display","FUNCTION":"Function to run"}
@@ -133,6 +134,14 @@ def run_geometric_sequence():
         numbers.append(functions.geometric_sequence(first_num,common_ratio,len(numbers)+1))
 
     print(numbers)
+
+#cylinder's volume calculator selected
+def run_volume_cylinder():
+    print("Selected Cylinder Volume Calculator \n")
+    radius=int(input("Enter Radius: "))
+    height=int(input("Enter height: "))
+    answer=functions.volume_cylinder(radius, height)
+    print(answer)
 
 still_running = True
 
