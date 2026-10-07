@@ -1,4 +1,11 @@
 import functions
+categories = {
+    1: {"NAME": "Basic Operations", "OPTIONS": [1, 2, 3, 4, 5]},
+    2: {"NAME": "Area", "OPTIONS": [6, 7, 8, 9]},
+    3: {"NAME": "Volume", "OPTIONS": [10, 13]},
+    4: {"NAME": "Sequences", "OPTIONS": [14, 15]},
+    5: {"NAME": "Physics", "OPTIONS": [16]},
+}
 
 
 function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
@@ -6,17 +13,30 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  3:{"NAME":"Multiplication","FUNCTION":"run_multiplication()"},
                  4:{"NAME":"Division","FUNCTION":"run_division()"},
                  5:{"NAME":"Modulus","FUNCTION":"run_modulus()"},
+
                  6:{"NAME":"Area Of Triangle","FUNCTION":"run_area_triangle()"},
-                 7:{"NAME":"Geometric Sequence","FUNCTION":"run_geometric_sequence()"},
-                 8:{"NAME":"Cube volume","FUNCTION":"run_volume_cube()"},
-                 9:{"NAME":"Circle area","FUNCTION":"run_area_circle()"},
-                 10:{"NAME":"Cylinder Volume","FUNCTION":"run_volume_cylinder()"},
-                 14:{"NAME":"Arithmetic Sequence","FUNCTION":"run_arithmetic_sequence()"},
+                 7:{"NAME":"Area of Circle","FUNCTION":"run_area_circle()"},
+                 8:{"NAME":"Area of Square","FUNCTION":"run_area_square()"},
+                 9:{"NAME":"Are of Rectangle","FUNCTION":"run_area_rectangle()"},
+                 
+                 10:{"NAME":"Cube volume","FUNCTION":"run_volume_cube()"},
+                 
+                             
+                 13:{"NAME":"Cylinder Volume","FUNCTION":"run_volume_cylinder()"},
+
+                 14:{"NAME":"Geometric Sequence","FUNCTION":"run_geometric_sequence()"},
+                 15:{"NAME":"Arithmetic Sequence","FUNCTION":"run_arithmetic_sequence()"},
+
                  16:{"NAME":"Velocity","FUNCTION":"run_velocity()"}
                  }
 
 #Function_dict structure: {selection_number:{"NAME":"The function name to display","FUNCTION":"Function to run"}
 #save it like this so selection number and the function is connected.
+
+
+
+
+
 
 def get_input():
     input_list = []
@@ -174,15 +194,47 @@ def run_velocity():
     print("Answer:", answer)
 
 #main loop of the program
+
+still_running = True
+
 while still_running:
+    print("\n=== CALCULATOR ===")
+    for number, category in categories.items():
+        print(number, category["NAME"])
+    print("0 Exit")
 
-    print("SELECT OPTION: ")
+    category_choice = input("Choose a category: ")
 
-    for inner_set in function_dict.items():         #show the available functions
-        print(inner_set[0],inner_set[1]["NAME"])
+    if category_choice == "0":
+        break
 
-    selection = int(input("Enter Number: "))        #get the selected function index
+    if not category_choice.isdigit() or int(category_choice) not in categories:
+        print("Please choose a category from the list.")
+        continue
 
-    eval(function_dict[selection]["FUNCTION"])      #Run the function using eval() to convert string function to code
+    selected_category = categories[int(category_choice)]
 
-    still_running = input("Continue? (y/n)") == "y" #Ask the user if they want to continue using the calculator
+    while True:
+        print(f"\n--- {selected_category['NAME']} ---")
+
+        for option_number in selected_category["OPTIONS"]:
+            print(option_number, function_dict[option_number]["NAME"])
+
+        print("0 Back to categories")
+        option_choice = input("Choose a calculation: ")
+
+        if option_choice == "0":
+            break
+
+        if not option_choice.isdigit():
+            print("Please enter a number.")
+            continue
+
+        option_choice = int(option_choice)
+
+        if option_choice in selected_category["OPTIONS"]:
+            eval(function_dict[option_choice]["FUNCTION"])
+            still_running = input("Continue? (y/n)") == "y" #Ask the user if they want to continue using the calculator
+            if still_running != "y":
+                still_running = False
+                break
