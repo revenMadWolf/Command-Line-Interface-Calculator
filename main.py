@@ -11,7 +11,7 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  8:{"NAME":"Cube volume","FUNCTION":"run_volume_cube()"},
                  9:{"NAME":"Circle area","FUNCTION":"run_area_circle()"},
                  10:{"NAME":"Cylinder Volume","FUNCTION":"run_volume_cylinder()"},
-                 14:{"NAME":"Arithmatic Sequence","FUNCTION":"run_arithmetic_sequence()"},
+                 14:{"NAME":"Arithmetic Sequence","FUNCTION":"run_arithmetic_sequence()"},
                  16:{"NAME":"Velocity","FUNCTION":"run_velocity()"}
                  }
 
@@ -59,7 +59,7 @@ def run_addition():
     #Output the answer
 
 
-#Selcted subtraction
+#Selected subtraction
 def run_subtraction():
     print("Selected Subtraction \n")
     answer=float(input("Enter number: "))
@@ -93,12 +93,12 @@ def run_area_rectangle():
 
 #square's Area
 def run_area_square():
-    print("selected Sqaure Area Calculator \n")
+    print("selected Square Area Calculator \n")
     length= int(input("Enter length: "))
     answer=functions.area_square(length)   #return the answer
     print(answer)
 
-#trainagle's area selected
+#triangle's area selected
 def run_area_triangle():
     print("Selected Triangle Area Calculator \n")
     base=int(input("Enter base: "))
@@ -119,7 +119,7 @@ def run_volume_cube():
     answer=functions.volume_cube(length)
     print(answer)
     
-#Geomatric Sequence selected
+#Geometric Sequence selected
 def run_geometric_sequence():
     print("Selected Geometric Sequence Calculator \n")   #message that displays
     sequence = input("Enter sequence with commas: ")     # Ask the user to enter the starting terms, separated by commas 
@@ -147,7 +147,7 @@ def run_volume_cylinder():
 
 still_running = True
 
-#Arithmatic sequence is selected
+#Arithmetic sequence is selected
 def run_arithmetic_sequence():
     print("Selected Arithmetic Sequence Calculator \n")
     sequence = input("Enter sequence with commas: ")
