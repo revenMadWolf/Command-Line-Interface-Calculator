@@ -86,6 +86,12 @@ def run_area_rectangle():
     answer=functions.area_rectangle(length,width)   #return the answer
     print(answer)
 
+#square's Area
+def run_area_square():
+    print("selected Sqaure Area Calculator \n")
+    length= int(input("Enter length: "))
+    answer=functions.area_square(length)   #return the answer
+    print(answer)
 
 #trainagle's area selected
 def run_area_triangle():
@@ -95,6 +101,13 @@ def run_area_triangle():
     answer=functions.area_triangle(base,height)
     print(answer)
 
+#circle's Area
+def run_area_circle():
+    print("Selected Circle Area Calculator \n")
+    radius=int(input("Enter radius: "))
+    answer= functions.area_circle(radius)
+    print(answer)
+    
 #Geomatric Sequence selected
 def run_geometric_sequence():
     print("Selected Geometric Sequence Calculator \n")   #message that displays
