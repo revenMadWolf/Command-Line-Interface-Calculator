@@ -11,6 +11,8 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  8:{"NAME":"Cube volume","FUNCTION":"run_volume_cube()"},
                  9:{"NAME":"Circle area","FUNCTION":"run_area_circle()"}
                  10:{"NAME":"Cylinder Volume","FUNCTION":"run_volume_cylinder()"}
+                 14:{"NAME":"Arithmatic Sequence","FUNCTION":"run_arithmetic_sequence()"},
+                 16:{"NAME":"Velocity","FUNCTION":"run_velocity()"}
                  }
 
 #Function_dict structure: {selection_number:{"NAME":"The function name to display","FUNCTION":"Function to run"}
@@ -144,6 +146,32 @@ def run_volume_cylinder():
     print(answer)
 
 still_running = True
+
+#Arithmatic sequence is selected
+def run_arithmetic_sequence():
+    print("Selected Arithmetic Sequence Calculator \n")
+    sequence = input("Enter sequence with commas: ")
+    n = int(input("Enter required elements amount: "))
+    numbers = sequence.split(",")
+    numbers = [float(num) for num in numbers]
+
+    # Calculate the common difference
+    common_difference = numbers[1] - numbers[0]
+    first_num = numbers[0]
+
+    # Add terms until the sequence contains the requested number of elements
+    while len(numbers) < n:
+        numbers.append(functions.arithmetic_sequence(first_num, common_difference, len(numbers)+1))
+
+    print(numbers)
+
+#selected Velocity
+def run_velocity():
+    print("Selected Velocity \n")
+    distance = float(input("Enter distance: "))
+    time = float(input("Enter time: "))
+    answer = functions.velocity(distance, time)  # pass both arguments
+    print("Answer:", answer)
 
 #main loop of the program
 while still_running:

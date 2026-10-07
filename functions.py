@@ -29,6 +29,9 @@ def area_triangle(base,height):
 def volume_cube(side):
     return side**3
 
+def arithmatic_sequence(first_term,difference,n):
+    return first_term + (n-1) * difference
+
 def geometric_sequence(first_term,ratio,n):
     return first_term*ratio**(n-1)
 
