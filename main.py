@@ -13,13 +13,6 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
 #Function_dict structure: {selection_number:{"NAME":"The function name to display","FUNCTION":"Function to run"}
 #save it like this so selection number and the function is connected.
 
-print("SELECT OPTION: ")
-
-for inner_set in function_dict.items():
-    print(inner_set[0],inner_set[1]["NAME"])
-
-selection = int(input("Enter Number: "))
-
 def get_input():
     input_list = []
     while True:  # Keep asking for new numbers to subtract
@@ -29,7 +22,6 @@ def get_input():
         else:
             break
     return input_list
-
 
 #Selected Multiplication
 def run_multiplication():
@@ -121,4 +113,18 @@ def run_geometric_sequence():
 
     print(numbers)
 
-eval(function_dict[selection]["FUNCTION"])
+still_running = True
+
+#main loop of the program
+while still_running:
+
+    print("SELECT OPTION: ")
+
+    for inner_set in function_dict.items():         #show the available functions
+        print(inner_set[0],inner_set[1]["NAME"])
+
+    selection = int(input("Enter Number: "))        #get the selected function index
+
+    eval(function_dict[selection]["FUNCTION"])      #Run the function using eval() to convert string function to code
+
+    still_running = input("Continue? (y/n)") == "y" #Ask the user if they want to continue using the calculator
