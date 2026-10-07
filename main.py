@@ -9,7 +9,7 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  6:{"NAME":"Area Of Triangle","FUNCTION":"run_area_triangle()"},
                  7:{"NAME":"Geometric Sequence","FUNCTION":"run_geometric_sequence()"},
                  8:{"NAME":"Cube volume","FUNCTION":"run_volume_cube()"},
-                 9:{"NAME":"Circle area","FUNCTION":"run_area_circle()"}
+                 9:{"NAME":"Circle area","FUNCTION":"run_area_circle()"},
                  10:{"NAME":"Cylinder Volume","FUNCTION":"run_volume_cylinder()"}
                  14:{"NAME":"Arithmatic Sequence","FUNCTION":"run_arithmetic_sequence()"},
                  16:{"NAME":"Velocity","FUNCTION":"run_velocity()"}
