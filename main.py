@@ -7,7 +7,9 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  4:{"NAME":"Division","FUNCTION":"run_division()"},
                  5:{"NAME":"Modulus","FUNCTION":"run_modulus()"},
                  6:{"NAME":"Area Of Triangle","FUNCTION":"run_area_triangle()"},
-                 7:{"NAME":"Geometric Sequence","FUNCTION":"run_geometric_sequence()"}
+                 7:{"NAME":"Geometric Sequence","FUNCTION":"run_geometric_sequence()"},
+                 8:{"NAME":"Cube volume","FUNCTION":"run_volume_cube()"},
+                 9:{"NAME":"Circle area","FUNCTION":"run_area_circle()"}
                  }
 
 #Function_dict structure: {selection_number:{"NAME":"The function name to display","FUNCTION":"Function to run"}
@@ -106,6 +108,12 @@ def run_area_circle():
     print("Selected Circle Area Calculator \n")
     radius=int(input("Enter radius: "))
     answer= functions.area_circle(radius)
+    print(answer)
+
+def run_volume_cube():
+    print("Selected volume")
+    length=float(input("Enter the length: "))
+    answer=functions.volume_cube(length)
     print(answer)
     
 #Geomatric Sequence selected
