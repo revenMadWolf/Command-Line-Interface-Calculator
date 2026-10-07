@@ -6,7 +6,7 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  3:{"NAME":"Multiplication","FUNCTION":"run_multiplication()"},
                  4:{"NAME":"Division","FUNCTION":"run_division()"},
                  5:{"NAME":"Modulus","FUNCTION":"run_modulus()"},
-                 6:{"NAME":"Area Of Triangle","FUNCTION":"run_area_rectangle()"},
+                 6:{"NAME":"Area Of Triangle","FUNCTION":"run_area_triangle()"},
                  7:{"NAME":"Geometric Sequence","FUNCTION":"run_geometric_sequence()"}
                  }
 
