@@ -1,4 +1,5 @@
 import functions
+import os
 
 categories = {
     1: {"NAME": "Basic Operations", "OPTIONS": [1, 2, 3, 4, 5]},
@@ -197,6 +198,7 @@ def run_velocity():
 still_running = True
 
 while still_running:
+    os.system("cls")
     print("\n=== CALCULATOR ===")
     for number, category in categories.items():
         print(number, category["NAME"])
@@ -211,6 +213,7 @@ while still_running:
         print("Please choose a category from the list.")
         continue
 
+    os.system("cls")
     selected_category = categories[int(category_choice)]
 
     while True:
@@ -228,6 +231,8 @@ while still_running:
         if not option_choice.isdigit():
             print("Please enter a number.")
             continue
+
+        os.system("cls")
 
         option_choice = int(option_choice)
 
