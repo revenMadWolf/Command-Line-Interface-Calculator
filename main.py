@@ -1,4 +1,5 @@
 import functions
+
 categories = {
     1: {"NAME": "Basic Operations", "OPTIONS": [1, 2, 3, 4, 5]},
     2: {"NAME": "Area", "OPTIONS": [6, 7, 8, 9]},
@@ -165,8 +166,6 @@ def run_volume_cylinder():
     answer=functions.volume_cylinder(radius, height)
     print(answer)
 
-still_running = True
-
 #Arithmetic sequence is selected
 def run_arithmetic_sequence():
     print("Selected Arithmetic Sequence Calculator \n")
@@ -235,6 +234,7 @@ while still_running:
         if option_choice in selected_category["OPTIONS"]:
             eval(function_dict[option_choice]["FUNCTION"])
             still_running = input("Continue? (y/n)") == "y" #Ask the user if they want to continue using the calculator
-            if still_running != "y":
-                still_running = False
+            if still_running == "y":
+                still_running = True
+            else:
                 break
