@@ -2,11 +2,12 @@ import functions
 import os
 
 categories = {
-    1: {"NAME": "Basic Operations", "OPTIONS": [1, 2, 3, 4, 5]},
-    2: {"NAME": "Area", "OPTIONS": [6, 7, 8, 9]},
-    3: {"NAME": "Volume", "OPTIONS": [10, 13]},
-    4: {"NAME": "Sequences", "OPTIONS": [14, 15]},
-    5: {"NAME": "Physics", "OPTIONS": [16]},
+    1: {"NAME": "Basic Operations", "OPTIONS": [1, 2, 3, 4, 5,0]},
+    2: {"NAME": "Area", "OPTIONS": [6, 7, 8, 9,0]},
+    3: {"NAME": "Volume", "OPTIONS": [10, 13,0]},
+    4: {"NAME": "Sequences", "OPTIONS": [14, 15,0]},
+    5: {"NAME": "Physics", "OPTIONS": [16,0]},
+    0: {"NAME": "Exit"}
 }
 
 
@@ -29,15 +30,30 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  14:{"NAME":"Geometric Sequence","FUNCTION":"run_geometric_sequence()"},
                  15:{"NAME":"Arithmetic Sequence","FUNCTION":"run_arithmetic_sequence()"},
 
-                 16:{"NAME":"Velocity","FUNCTION":"run_velocity()"}
+                 16:{"NAME":"Velocity","FUNCTION":"run_velocity()"},
+                 0:{"NAME":"Back To Categories"}
                  }
 
 #Function_dict structure: {selection_number:{"NAME":"The function name to display","FUNCTION":"Function to run"}
 #save it like this so selection number and the function is connected.
 
+#made to verify if the entered input does not break the program
+def validate_user_input(user_input, allowed_nums=None):
+    try:
+        user_input = float(user_input)
+        if allowed_nums:
+            if user_input in allowed_nums:
+                return user_input
+            else:
+                print("No Option Found!")
+                return validate_user_input(input("Choose again: "),allowed_nums)
+        else:
+            return user_input
 
+    except ValueError:
 
-
+        print("Invalid Input!")
+        return validate_user_input(input("Enter Number: "),allowed_nums)
 
 
 def get_input():
@@ -45,7 +61,7 @@ def get_input():
     while True:  # Keep asking for new numbers to subtract
         num = input("Enter Number: ")  # Get the next number to subtraction answer
         if num:  # Stop asking for more numbers and leave the calculation
-            input_list.append(int(num))
+            input_list.append(validate_user_input(num))
         else:
             break
     return input_list
@@ -63,7 +79,9 @@ def run_multiplication():
 #Selcted Division
 def run_division():
     print("Selected Division \n")
-    answer=float(input("Enter number: "))
+
+    answer = validate_user_input(input("Enter Number: "))
+
     inputs = get_input()
     for num in inputs:
         answer = functions.division(answer,num)
@@ -84,7 +102,7 @@ def run_addition():
 #Selected subtraction
 def run_subtraction():
     print("Selected Subtraction \n")
-    answer=float(input("Enter number: "))
+    answer = validate_user_input(input("Enter Number: "))
     inputs = get_input()
     for num in inputs:
         answer = functions.subtraction(answer,num)
@@ -196,22 +214,16 @@ def run_velocity():
 #main loop of the program
 
 still_running = True
-
+os.system("cls")
 while still_running:
-    os.system("cls")
     print("\n=== CALCULATOR ===")
     for number, category in categories.items():
         print(number, category["NAME"])
-    print("0 Exit")
 
-    category_choice = input("Choose a category: ")
-
-    if category_choice == "0":
+    category_choice = validate_user_input(input("Choose a category: "), categories)
+    if category_choice == 0:
+        os.system("cls")
         break
-
-    if not category_choice.isdigit() or int(category_choice) not in categories:
-        print("Please choose a category from the list.")
-        continue
 
     os.system("cls")
     selected_category = categories[int(category_choice)]
@@ -222,24 +234,17 @@ while still_running:
         for option_number in selected_category["OPTIONS"]:
             print(option_number, function_dict[option_number]["NAME"])
 
-        print("0 Back to categories")
-        option_choice = input("Choose a calculation: ")
+        option_choice = validate_user_input(input("Choose a calculation: "), selected_category["OPTIONS"])
 
-        if option_choice == "0":
+        if option_choice == 0:
+            os.system("cls")
             break
 
-        if not option_choice.isdigit():
-            print("Please enter a number.")
-            continue
-
-        os.system("cls")
 
         option_choice = int(option_choice)
-
-        if option_choice in selected_category["OPTIONS"]:
-            eval(function_dict[option_choice]["FUNCTION"])
-            still_running = input("Continue? (y/n)") == "y" #Ask the user if they want to continue using the calculator
-            if still_running == "y":
-                still_running = True
-            else:
-                break
+        eval(function_dict[option_choice]["FUNCTION"])
+        still_running = input("Continue? (y/n)") == "y" #Ask the user if they want to continue using the calculator
+        if still_running == "y":
+            os.system("cls")
+        else:
+            break
