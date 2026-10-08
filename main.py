@@ -226,7 +226,7 @@ while still_running:
         break
 
     os.system("cls")
-    selected_category = categories[int(category_choice)]
+    selected_category = categories[category_choice]
 
     while True:
         print(f"\n--- {selected_category['NAME']} ---")
@@ -240,8 +240,6 @@ while still_running:
             os.system("cls")
             break
 
-
-        option_choice = int(option_choice)
         eval(function_dict[option_choice]["FUNCTION"])
         still_running = input("Continue? (y/n)") == "y" #Ask the user if they want to continue using the calculator
         if still_running == "y":
