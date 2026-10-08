@@ -37,7 +37,7 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
 #Function_dict structure: {selection_number:{"NAME":"The function name to display","FUNCTION":"Function to run"}
 #save it like this so selection number and the function is connected.
 
-#made to verify if the entered input does not break the program
+#made to verify if the entered input does not break the program and asks the user to enter input till it gets a valid input
 def validate_user_input(user_input, allowed_nums=None):
     try:
         user_input = float(user_input)
