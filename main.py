@@ -1,5 +1,11 @@
 import functions
 import os
+CYAN = "\033[96m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+MAGENTA = "\033[95m"
+RED = "\033[91m"
+RESET = "\033[0m"
 
 categories = {
     1: {"NAME": "Basic Operations", "OPTIONS": [1, 2, 3, 4, 5,0]},
@@ -9,7 +15,18 @@ categories = {
     5: {"NAME": "Physics", "OPTIONS": [16,0]},
     0: {"NAME": "Exit"}
 }
+category_colors = {
+    1: GREEN,    # Basic Operations
+    2: YELLOW,   # Area
+    3: MAGENTA,  # Volume
+    4: CYAN,     # Sequences
+    5: RED,      # Physics
+    0: RESET     # Exit
+}
 
+for number, category in categories.items():
+    color = category_colors.get(number, RESET)
+    print(f"{color}[{number}] {category['NAME']}{RESET}")
 
 function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  2:{"NAME":"Subtraction","FUNCTION":"run_subtraction()"},
@@ -234,23 +251,30 @@ def run_velocity():
 still_running = True
 os.system("cls")
 while still_running:
-    print("\n=== CALCULATOR ===")
-    for number, category in categories.items():
-        print(number, category["NAME"])
+    print(f"\n{CYAN}╭──────────────────────────────╮")
+    print("│       ✦ CALCULATOR ✦         │")
+    print(f"╰──────────────────────────────╯{RESET}")
+    
 
-    category_choice = validate_user_input(input("Choose a category: "), categories)
+    for number, category in categories.items():
+        color = category_colors[number]
+        print(f"{color}[{number}] {category['NAME']}{RESET}")
+
+    category_choice = validate_user_input(input(f"\n{CYAN}Choose a category: {RESET}"),categories)
     if category_choice == 0:
         os.system("cls")
         break
 
     os.system("cls")
     selected_category = categories[category_choice]
+    selected_color = category_colors[category_choice]
 
     while True:
-        print(f"\n--- {selected_category['NAME']} ---")
+        print(f"\n{selected_color}--- {selected_category['NAME']} ---{RESET}")
 
         for option_number in selected_category["OPTIONS"]:
-            print(option_number, function_dict[option_number]["NAME"])
+            option_name = function_dict[option_number]["NAME"]
+            print(f"{selected_color}[{option_number}] {option_name}{RESET}")
 
         option_choice = validate_user_input(input("Choose a calculation: "), selected_category["OPTIONS"])
 
@@ -259,6 +283,8 @@ while still_running:
             break
 
         eval(function_dict[option_choice]["FUNCTION"])
+        continue_choice = input(
+            f"\n{YELLOW}Do you want to continue? (y/n): {RESET}").lower()
         still_running = input("Continue? (y/n)") == "y" #Ask the user if they want to continue using the calculator
         if still_running == "y":
             os.system("cls")
