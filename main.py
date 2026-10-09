@@ -115,8 +115,8 @@ def run_modulus():
 
     print("Selected Modulus \n")
 
-    answer = float(input("Enter first number: "))
-    num = float(input("Enter second number: "))
+    answer = validate_user_input(input("Enter First Number: "))
+    num = validate_user_input(input("Enter Second Number: "))
 
     answer = functions.modulus(answer, num)
 
@@ -126,36 +126,36 @@ def run_modulus():
 # rectangle's area selected
 def run_area_rectangle():
     print("selected Rectangle Area Calculator \n")
-    length= int(input("Enter length: "))
-    width=int(input("Enter width: "))
+    length= validate_user_input(input("Enter length: "))
+    width= validate_user_input(input("Enter width: "))
     answer=functions.area_rectangle(length,width)   #return the answer
     print(answer)
 
 #square's Area
 def run_area_square():
     print("selected Square Area Calculator \n")
-    length= int(input("Enter length: "))
+    length= validate_user_input(input("Enter length: "))
     answer=functions.area_square(length)   #return the answer
     print(answer)
 
 #triangle's area selected
 def run_area_triangle():
     print("Selected Triangle Area Calculator \n")
-    base=int(input("Enter base: "))
-    height=int(input("Enter height: "))
+    base=validate_user_input(input("Enter base: "))
+    height=validate_user_input(input("Enter height: "))
     answer=functions.area_triangle(base,height)
     print(answer)
 
 #circle's Area
 def run_area_circle():
     print("Selected Circle Area Calculator \n")
-    radius=int(input("Enter radius: "))
+    radius=validate_user_input(input("Enter radius: "))
     answer= functions.area_circle(radius)
     print(answer)
 
 def run_volume_cube():
     print("Selected volume")
-    length=float(input("Enter the length: "))
+    length=validate_user_input(input("Enter length: "))
     answer=functions.volume_cube(length)
     print(answer)
     
@@ -180,8 +180,8 @@ def run_geometric_sequence():
 #cylinder's volume calculator selected
 def run_volume_cylinder():
     print("Selected Cylinder Volume Calculator \n")
-    radius=int(input("Enter Radius: "))
-    height=int(input("Enter height: "))
+    radius=validate_user_input(input("Enter radius: "))
+    height=validate_user_input(input("Enter height: "))
     answer=functions.volume_cylinder(radius, height)
     print(answer)
 
@@ -206,8 +206,8 @@ def run_arithmetic_sequence():
 #selected Velocity
 def run_velocity():
     print("Selected Velocity \n")
-    distance = float(input("Enter distance: "))
-    time = float(input("Enter time: "))
+    distance = validate_user_input(input("Enter distance: "))
+    time = validate_user_input(input("Enter time: "))
     answer = functions.velocity(distance, time)  # pass both arguments
     print("Answer:", answer)
 
