@@ -4,7 +4,7 @@ import os
 categories = {
     1: {"NAME": "Basic Operations", "OPTIONS": [1, 2, 3, 4, 5,0]},
     2: {"NAME": "Area", "OPTIONS": [6, 7, 8, 9,0]},
-    3: {"NAME": "Volume", "OPTIONS": [10, 13,0]},
+    3: {"NAME": "Volume", "OPTIONS": [10,11,12, 13,0]},
     4: {"NAME": "Sequences", "OPTIONS": [14, 15,0]},
     5: {"NAME": "Physics", "OPTIONS": [16,0]},
     0: {"NAME": "Exit"}
@@ -23,8 +23,8 @@ function_dict = {1:{"NAME":"Addition","FUNCTION":"run_addition()"},
                  9:{"NAME":"Are of Rectangle","FUNCTION":"run_area_rectangle()"},
                  
                  10:{"NAME":"Cube volume","FUNCTION":"run_volume_cube()"},
-                 
-                             
+                 11:{"NAME":"Cuboid volume","FUNCTION":"run_volume_cuboid()"},
+                 12:{"NAME":"Sphere volume","FUNCTION":"run_volume_sphere()"},                             
                  13:{"NAME":"Cylinder Volume","FUNCTION":"run_volume_cylinder()"},
 
                  14:{"NAME":"Geometric Sequence","FUNCTION":"run_geometric_sequence()"},
@@ -153,12 +153,38 @@ def run_area_circle():
     answer= functions.area_circle(radius)
     print(answer)
 
+#Volume of cube
 def run_volume_cube():
-    print("Selected volume")
+    print("Selected volume of cube")
     length=validate_user_input(input("Enter length: "))
     answer=functions.volume_cube(length)
     print(answer)
-    
+
+#volume of cuboid
+def run_volume_cuboid():
+    print("Selected volume of cuboid")
+    length=validate_user_input(input("Enter length: "))
+    width=validate_user_input(input("Enter width: "))
+    height=validate_user_input(input("Enter height: "))
+    answer=functions.volume_cuboid(length, width, height)
+    print(answer)
+
+#volume of sphere
+def run_volume_sphere():
+    print("Selected volume of sphere")
+    radius=validate_user_input(input("Enter radius: "))
+    answer=functions.volume_sphere(radius)
+    print(answer)
+
+#cylinder's volume calculator selected
+def run_volume_cylinder():
+    print("Selected volume of cylinder")
+    radius=validate_user_input(input("Enter radius: "))
+    height=validate_user_input(input("Enter height: "))
+    answer=functions.volume_cylinder(radius, height)
+    print(answer)
+
+
 #Geometric Sequence selected
 def run_geometric_sequence():
     print("Selected Geometric Sequence Calculator \n")   #message that displays
@@ -176,14 +202,6 @@ def run_geometric_sequence():
         numbers.append(functions.geometric_sequence(first_num,common_ratio,len(numbers)+1))
 
     print(numbers)
-
-#cylinder's volume calculator selected
-def run_volume_cylinder():
-    print("Selected Cylinder Volume Calculator \n")
-    radius=validate_user_input(input("Enter radius: "))
-    height=validate_user_input(input("Enter height: "))
-    answer=functions.volume_cylinder(radius, height)
-    print(answer)
 
 #Arithmetic sequence is selected
 def run_arithmetic_sequence():

@@ -29,6 +29,16 @@ def area_triangle(base,height):
 def volume_cube(side):
     return side**3
 
+def volume_cuboid(length, width, height):
+    return length * width * height 
+
+def volume_sphere(radius):
+    return 4/3 * 3.142 * radius**3
+
+def volume_cylinder(radius,height):
+    return 3.142*radius**2*height
+
+
 def arithmatic_sequence(first_term,difference,n):
     return first_term + (n-1) * difference
 
@@ -38,8 +48,6 @@ def geometric_sequence(first_term,ratio,n):
 def velocity(distance,time):
     return distance/time
 
-def volume_cylinder(radius,height):
-    return 3.142*radius**2*height
 
 def arithmetic_sequence(first_term,difference,n):
     a,d=first_term,difference   #assigning into two variables to sort it 
