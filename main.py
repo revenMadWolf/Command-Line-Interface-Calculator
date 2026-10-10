@@ -96,13 +96,12 @@ def run_multiplication():
 #Selcted Division
 def run_division():
     print("Selected Division \n")
-
-    answer = validate_user_input(input("Enter Number: "))
-
+    answer = validate_user_input(input("Enter Number: "))               #There is a error on division
     inputs = get_input()
     for num in inputs:
-        answer = functions.division(answer,num)
+        answer = functions.division(answer,num)                        
     print("Answer:",answer)
+
     #Output the answer
     
 #Selected Addition
@@ -285,7 +284,7 @@ while still_running:
         eval(function_dict[option_choice]["FUNCTION"])
         continue_choice = input(
             f"\n{YELLOW}Do you want to continue? (y/n): {RESET}").lower()
-        still_running = input("Continue? (y/n)") == "y" #Ask the user if they want to continue using the calculator
+        still_running =  "y" #Ask the user if they want to continue using the calculator
         if still_running == "y":
             os.system("cls")
         else:
